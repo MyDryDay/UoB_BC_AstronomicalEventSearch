@@ -1,1 +1,1 @@
-# MyDryDay-UoB_BC_AstronomicalEventSearch
+# UoB_BC_AstronomicalEventSearch
