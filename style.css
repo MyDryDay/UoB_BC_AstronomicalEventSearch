@@ -1,37 +1,33 @@
 /* This class ensures the image shown on the homepage is inline with the text and floats to the right */
 .img1{
-    float: right;
-    display: inline;
-    margin: 10px;
+  float: right;
+  display: inline;
+  margin: 10px;
 }
-
-body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-  }
-
-  main {
-    flex: 1 0 auto;
-  }
-
-  /*This ensures the footer sticks to the bottom of the page*/
-  .footer-div{
-    bottom: 0;
-    /* width: 85%; */
-    height: 60px;
-    line-height: 40px;
-    text-align: center;
-    padding: 20px;
-  }
-<<<<<<< HEAD
 
 /* This class ensures that the modal image is centered in the modal itself */
 .modal-img{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-=======
->>>>>>> 8cf2c83f85a1dcbab2cbdc42023f786219f4f959
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+/*This ensures the footer sticks to the bottom of the page*/
+.footer-div{
+  bottom: 0;
+  /* width: 85%; */
+  height: 60px;
+  line-height: 40px;
+  text-align: center;
+  padding: 20px;
+}
