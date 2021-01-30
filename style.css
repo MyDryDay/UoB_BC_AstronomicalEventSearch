@@ -16,9 +16,10 @@ body {
     flex: 1 0 auto;
   }
 
+  /*This ensures the footer sticks to the bottom of the page*/
   .footer-div{
     bottom: 0;
-    width: 85%;
+    /* width: 85%; */
     height: 60px;
     line-height: 40px;
     text-align: center;
