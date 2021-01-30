@@ -4,10 +4,7 @@
     display: inline;
     margin: 10px;
 }
-<<<<<<< HEAD
-=======
 
-<<<<<<< HEAD
 body {
     display: flex;
     min-height: 100vh;
@@ -27,12 +24,3 @@ body {
     text-align: center;
     padding: 20px;
   }
-=======
-/* This class ensures that the modal image is centered in the modal itself */
-.modal-img{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
->>>>>>> 3d80522a3518bb5e501647597139a628d5639007
->>>>>>> 0b9cc490311191e6b3ee3e031c147a20673eeadc
