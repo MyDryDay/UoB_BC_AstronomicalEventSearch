@@ -15,6 +15,7 @@ $(document).ready(function(){
 })
 
 $("#locationQuery").on("keypress", function(e){
+    e.preventDefault();
     if(e.key === "Enter"){
         var q = $("#locationQuery").val();
         q = q.replace(/\s/g, "");
