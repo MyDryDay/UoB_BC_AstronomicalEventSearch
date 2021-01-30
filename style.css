@@ -1,5 +1,13 @@
+/* This class ensures the image shown on the homepage is inline with the text and floats to the right */
 .img1{
     float: right;
     display: inline;
     margin: 10px;
+}
+
+/* This class ensures that the modal image is centered in the modal itself */
+.modal-img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
