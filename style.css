@@ -24,6 +24,7 @@ body {
     text-align: center;
     padding: 20px;
   }
+<<<<<<< HEAD
 
 /* This class ensures that the modal image is centered in the modal itself */
 .modal-img{
@@ -32,3 +33,5 @@ body {
     margin-right: auto;
 }
 
+=======
+>>>>>>> 8cf2c83f85a1dcbab2cbdc42023f786219f4f959

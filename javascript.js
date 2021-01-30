@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 $(document).ready(function () {
+=======
+$(document).ready(function(){
+>>>>>>> 8cf2c83f85a1dcbab2cbdc42023f786219f4f959
     // This initializes the use of the multi-select dropdown menu on the navbar
     $("select").formSelect();
     // This assigns a value to the selected values (none at this point) and creates an empty array calles values
@@ -13,5 +17,8 @@ $(document).ready(function () {
     // This initializes the use of the modals for images
     $('.modal').modal();
 })
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 8cf2c83f85a1dcbab2cbdc42023f786219f4f959
