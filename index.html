@@ -1,37 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.css">
+    <link type="text/css" rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link type="text/css" rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <title>AstroSearch</title>
 </head>
+
 <body>
 
-    <div class="container">
+    <main class="container">
 
+        <!-- This is the code for the navbar -->
         <div class="row section">
             <nav>
-                <div class="nav-wrapper">
+                <div class="nav-wrapper teal darken-2">
                     <a href="#" class="brand-logo center">AstroSearch</a>
                     <ul class="right hide-on-med-and-down">
                         <li class="active"><a href="#">Link1</a></li>
                         <li><a href="#">Link2</a></li>
                         <li><a href="#">Link3</a></li>
-                    </ul>  
+                    </ul>
                 </div>
             </nav>
         </div>
+        <!-- This is the code for the search options -->
         <div class="row">
+<<<<<<< HEAD
             <div class="col s5">
+=======
+            <!-- This is the search bar -->
+            <div class="col s6">
+>>>>>>> 0b9cc490311191e6b3ee3e031c147a20673eeadc
                 <nav>
                     <div class="nav-wrapper">
                         <form>
-                            <div class="input-field">
-                                <input type="search" required>
+                            <div class="input-field teal darken-2">
+                                <input type="search" required placeholder="search location">
                                 <label class="label-icon" for="search"><i class="material-icons">search</i></label>
                                 <i class="material-icons">close</i>
                             </div>
@@ -39,10 +49,17 @@
                     </div>
                 </nav>
             </div>
+<<<<<<< HEAD
             <!-- Date picker -->
             <div class="col s4">
                 <p>Date: <input type="text" id="datepicker"/></p>
+=======
+            <!-- This is the date picker -->
+            <div class="col s3">
+
+>>>>>>> 0b9cc490311191e6b3ee3e031c147a20673eeadc
             </div>
+            <!-- This is the multi-select dropdown menu -->
             <div class="col s3 input-field center-align">
                 <select multiple>
                     <option value="" disabled selected>Options</option>
@@ -55,26 +72,55 @@
 
         <div class="divider"></div>
 
+        <!-- This is for the text area with the image -->
         <div class="row section">
             <div class="col s12">
                 <p class="center-align">
-                    <a href="https://placeholder.com"><img class="responsive-img img1" src="https://via.placeholder.com/150"></a>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat nobis commodi minima est eos, possimus quasi sed unde veritatis velit aliquid blanditiis, sunt molestias illum, laudantium explicabo. Est adipisci suscipit fuga modi, laborum illo! Praesentium quo voluptatum atque pariatur quod fugiat enim omnis aliquid odit numquam amet temporibus repellat saepe aut vero consequatur obcaecati laborum, eaque minima molestias quos aspernatur? Voluptates amet odio, sit tenetur hic velit optio eaque modi commodi doloremque consectetur, assumenda dicta quas tempore rerum temporibus nam ipsa porro nobis omnis voluptatibus, dolor soluta consequatur. Ad aliquam obcaecati, sed corrupti quae et non reprehenderit ipsam asperiores architecto?
+<<<<<<< HEAD
+                    <a href="https://placeholder.com"><img class="responsive-img img1"
+                            src="https://via.placeholder.com/150"></a>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat nobis commodi minima est eos,
+                    possimus quasi sed unde veritatis velit aliquid blanditiis, sunt molestias illum, laudantium
+                    explicabo. Est adipisci suscipit fuga modi, laborum illo! Praesentium quo voluptatum atque pariatur
+                    quod fugiat enim omnis aliquid odit numquam amet temporibus repellat saepe aut vero consequatur
+                    obcaecati laborum, eaque minima molestias quos aspernatur? Voluptates amet odio, sit tenetur hic
+                    velit optio eaque modi commodi doloremque consectetur, assumenda dicta quas tempore rerum temporibus
+                    nam ipsa porro nobis omnis voluptatibus, dolor soluta consequatur. Ad aliquam obcaecati, sed
+                    corrupti quae et non reprehenderit ipsam asperiores architecto?
 
+=======
+                    <img class="responsive-img img1 waves-effect waves-light modal-trigger" href="#modal1" src="https://via.placeholder.com/150">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat nobis commodi minima est eos, possimus quasi sed unde veritatis velit aliquid blanditiis, sunt molestias illum, laudantium explicabo. Est adipisci suscipit fuga modi, laborum illo! Praesentium quo voluptatum atque pariatur quod fugiat enim omnis aliquid odit numquam amet temporibus repellat saepe aut vero consequatur obcaecati laborum, eaque minima molestias quos aspernatur? Voluptates amet odio, sit tenetur hic velit optio eaque modi commodi doloremque consectetur, assumenda dicta quas tempore rerum temporibus nam ipsa porro nobis omnis voluptatibus, dolor soluta consequatur. Ad aliquam obcaecati, sed corrupti quae et non reprehenderit ipsam asperiores architecto?
+>>>>>>> 3d80522a3518bb5e501647597139a628d5639007
                 </p>
+            </div>
+            <!-- This is the modal content, which only appears if the image is clicked on -->
+            <div id="modal1" class="modal">
+                <div class="modal-content">
+                    <img class="modal-img" src="https://via.placeholder.com/150">
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+                </div>
             </div>
         </div>
 
         <div class="divider"></div>
 
         <div class="divider"></div>
-
-    </div>
-    
-
-    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    </main>
+    <footer class="container footer-div">
+        <div class="footer-copyright teal darken-2">
+            <div class="container">
+                <span class="text-muted">© 2021 AstroSearch</span>
+            </div>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.js"></script>
     <script src="javascript.js"></script>
 
 </body>
+
 </html>
