@@ -12,6 +12,33 @@ $(document).ready(function(){
 
     // This initializes the use of the modals for images
     $('.modal').modal();
+
+        //This function displays the Moon phase for the day
+        function displayMoonPhase() {
+            var moonURL = "https://www.icalendar37.net/lunar/api/?lang=en&";
+            var today = new Date();
+            var dd = (today.getDate())
+            var mm = (today.getMonth() + 1);
+            var year = today.getFullYear();
+            $.ajax({
+                url: moonURL + "month" + "=" + mm + "&" + "year" + "=" + year,
+                method: "GET",
+            }).then(function (response) {
+                var moonPhase = $.parseJSON(response);
+                console.log(moonPhase);
+                console.log(moonURL + "month" + "=" + mm + "&" + "year" + "=" + year);
+                var currentDate = dd + " " + moonPhase.monthName + " " + moonPhase.year
+                var moonDiv = $("#ex4");
+                var dayDiv = "<div>" + "<b>" + currentDate + "</b>" + "</div>"
+                var moonSVG =  "<div shadow>" + moonPhase.phase[dd].svg + "</div>"
+                var phaseOfMoon = "<div>" + "<b>" + moonPhase.phase[dd].phaseName + " " +
+                "" + ((moonPhase.phase[dd].isPhaseLimit )? ""  :   Math.round(moonPhase.phase[dd].lighting) + "%") + "</b>" +
+                "</div>"
+                var moonHTML = dayDiv + moonSVG + phaseOfMoon
+                moonDiv.html(moonHTML);
+            });
+        }
+        displayMoonPhase();
 })
 
 $("#locationQuery").on("keypress", function(e){
@@ -22,6 +49,7 @@ $("#locationQuery").on("keypress", function(e){
         console.log(q);
         buildGeoCodeURL(q);
     }
+
 });
 
 var buildGeoCodeURL = function(q){
