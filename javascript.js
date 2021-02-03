@@ -218,6 +218,25 @@ var ajaxCall = function (queryURL) {
             console.log(serverResponse.data.time_zone[0].sunrise);
             console.log(serverResponse.data.time_zone[0].sunset);
 
-        })
-    })
+            //Server response saved into variable
+            var sunrise = serverResponse.data.time_zone[0].sunrise;
+            var sunset = serverResponse.data.time_zone[0].sunset;
+            var moonrise = serverResponse.data.time_zone[0].moonrise;
+            var moonset = serverResponse.data.time_zone[0].moonset;
+            console.log(sunrise, sunset, moonrise, moonset)
+            sunAndMoonIcon();
+        });
+    });
+
+    //Function to display icons for sunrise, moonrise, sunset & moonset when user inputs location
+    function sunAndMoonIcon () {
+        sunriseIMG = $("#sunrise-icon");
+        sunriseIMG.attr({"src":"img/sunrise.svg", "height":"50px", "width":"50px"});
+        sunsetIMG = $("#sunset-icon");
+        sunsetIMG.attr({"src":"img/sunset.svg", "height":"50px", "width":"50px"})
+        moonriseIMG = $("#moonrise-icon");
+        moonriseIMG.attr({"src":"img/moonrise.svg", "height":"50px", "width":"50px"});
+        moonsetIMG = $("#moonset-icon");
+        moonsetIMG.attr({"src":"img/sunrise.svg", "height":"50px", "width":"50px"});
+     }
 }

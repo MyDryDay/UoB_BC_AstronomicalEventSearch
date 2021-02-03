@@ -55,3 +55,11 @@ main {
   filter:drop-shadow(0 0 25px rgb(0,50,50));
   padding:15px 0;
   }
+
+#widget{
+  display: table;
+  margin:20px auto;
+  padding: 5px;
+  height:320px;
+  width: 220px;
+}
