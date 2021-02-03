@@ -49,8 +49,21 @@ $(document).ready(function(){
             // var todayExDisplay = $("<p>").text("About: " + response.explanation);
             // var todayPicDisplay = $('<img>').attr("src", response.hdurl);
             // todayPicDisplay.attr("style", "height: 350px; width: 330px");
-            console.log(response.hdurl);
-            console.log(response.date);
+            // console.log(response.hdurl);
+            // console.log(response.url);
+
+            // This statement determines what content is shown depending on the server response
+            if(response.media_type == "image"){
+                console.log(response.hdurl);
+                $("#apodVideo").css("display", "none");
+                $("#apodVideo").attr("src", response.hdurl);
+            } else if(response.media_type == "video"){
+                console.log(response.url);
+                $("#apodImg").css("display", "none");
+                $("#apodImg").attr("src", response.url);
+            }
+
+            // console.log(response.date);
             // var newDiv = $('<div>');
             // newDiv.append(todayDateDisplay, todayExDisplay, todayPicDisplay);
             // $("#todayPic").html(newDiv);
@@ -76,8 +89,18 @@ $(document).ready(function(){
                 // var inputExDisplay = $("<p>").text("About: " + response.explanation);
                 // var inputPicDisplay = $('<img>').attr("src", response.hdurl);
                 // inputPicDisplay.attr("style", "height: 350px; width: 330px");
-                console.log(response.hdurl);
-                console.log(response.date);
+                // console.log(response.hdurl);
+                // console.log(response.date);
+
+                if(response.media_type == "image"){
+                    console.log(response.hdurl);
+                    $("#apodVideo").css("display", "none");
+                    $("#apodVideo").attr("src", response.hdurl);
+                } else if(response.media_type == "video"){
+                    console.log(response.url);
+                    $("#apodImg").css("display", "none");
+                    $("#apodImg").attr("src", response.url);
+                }
                 // var newDiv = $('<div>');
                 // newDiv.append(inputDateDisplay, inputExDisplay, inputPicDisplay);
                 // $("#inputPic").html(newDiv);
