@@ -120,6 +120,32 @@ $(document).ready(function(){
             })
     }
     
+        //This function displays the Moon phase for the day
+        function displayMoonPhase() {
+            var moonURL = "https://www.icalendar37.net/lunar/api/?lang=en&";
+            var today = new Date();
+            var dd = (today.getDate())
+            var mm = (today.getMonth() + 1);
+            var year = today.getFullYear();
+            $.ajax({
+                url: moonURL + "month" + "=" + mm + "&" + "year" + "=" + year,
+                method: "GET",
+            }).then(function (response) {
+                var moonPhase = $.parseJSON(response);
+                console.log(moonPhase);
+                console.log(moonURL + "month" + "=" + mm + "&" + "year" + "=" + year);
+                var currentDate = dd + " " + moonPhase.monthName + " " + moonPhase.year
+                var moonDiv = $("#ex4");
+                var dayDiv = "<div>" + "<b>" + currentDate + "</b>" + "</div>"
+                var moonSVG =  "<div shadow>" + moonPhase.phase[dd].svg + "</div>"
+                var phaseOfMoon = "<div>" + "<b>" + moonPhase.phase[dd].phaseName + " " +
+                "" + ((moonPhase.phase[dd].isPhaseLimit )? ""  :   Math.round(moonPhase.phase[dd].lighting) + "%") + "</b>" +
+                "</div>"
+                var moonHTML = dayDiv + moonSVG + phaseOfMoon
+                moonDiv.html(moonHTML);
+            });
+        }
+        displayMoonPhase();
 })
 
 // This event states that upon pressing a key a function will be executed
@@ -135,6 +161,7 @@ $("#locationQuery").on("keypress", function(e){
         // A function to build the queryURL for the GeoCode API is built
         buildGeoCodeURL(q);
     }
+
 });
 
 // This function takes the user input previously assigned to variable q and concatenates it into the queryURL

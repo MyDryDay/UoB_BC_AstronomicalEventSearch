@@ -41,3 +41,17 @@ main {
   text-align: center;
   padding: 20px;
 }
+
+/*Styles the div displaying the Moon phase*/
+#ex4 {
+  display: table;    
+  margin:20px auto;
+  text-align: center; 
+  height: 200px;
+  width: 210px;
+  border: 1px solid black;
+}
+#ex4 [shadow]{
+  filter:drop-shadow(0 0 25px rgb(0,50,50));
+  padding:15px 0;
+  }
