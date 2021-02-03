@@ -56,11 +56,15 @@ $(document).ready(function(){
             if(response.media_type == "image"){
                 console.log(response.hdurl);
                 $("#apodVideo").css("display", "none");
-                $("#apodVideo").attr("src", response.hdurl);
+                $("#apodImg").css("display", "block");
+                $("#apodImg").attr("src", response.hdurl);
+                $("#modal-content").attr("src", response.hdurl);
             } else if(response.media_type == "video"){
                 console.log(response.url);
                 $("#apodImg").css("display", "none");
-                $("#apodImg").attr("src", response.url);
+                $("#apodVideo").css("display", "block");
+                $("#apodVideo").attr("src", response.url);
+                $("#modal-content").attr("src", response.url);
             }
 
             // console.log(response.date);
@@ -92,14 +96,19 @@ $(document).ready(function(){
                 // console.log(response.hdurl);
                 // console.log(response.date);
 
+                // This statement determines what content is shown depending on the server response
                 if(response.media_type == "image"){
                     console.log(response.hdurl);
                     $("#apodVideo").css("display", "none");
-                    $("#apodVideo").attr("src", response.hdurl);
+                    $("#apodImg").css("display", "block");
+                    $("#apodImg").attr("src", response.hdurl);
+                    $("#modal-content").attr("src", response.hdurl);
                 } else if(response.media_type == "video"){
                     console.log(response.url);
                     $("#apodImg").css("display", "none");
-                    $("#apodImg").attr("src", response.url);
+                    $("#apodVideo").css("display", "block");
+                    $("#apodVideo").attr("src", response.url);
+                    $("#modal-content").attr("src", response.url);
                 }
                 // var newDiv = $('<div>');
                 // newDiv.append(inputDateDisplay, inputExDisplay, inputPicDisplay);

@@ -3,6 +3,8 @@
   float: right;
   display: inline;
   margin: 10px;
+  height: 350px;
+  width: 450px;
 }
 
 .header{
@@ -17,6 +19,8 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+
 
 body {
   display: flex;
