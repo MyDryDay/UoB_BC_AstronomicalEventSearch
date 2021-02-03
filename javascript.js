@@ -36,6 +36,34 @@ $(document).ready(function(){
     // This initializes the use of the modals for images
     $('.modal').modal();
 
+    var getCaption = function(response){
+        if($("#mediaCaption") == ""){
+            $("#mediaCaption").append(response.explanation);
+        }else if($("#mediaCaption") !== ""){
+            $("#mediaCaption").empty();
+            $("#mediaCaption").append(response.explanation);
+        }
+    }
+
+
+    var checkMediaType = function(response){
+        // This statement determines what content is shown depending on the server response
+        if(response.media_type == "image"){
+            console.log(response.hdurl);
+            $("#apodVideo").css("display", "none");
+            $("#apodImg").css("display", "block");
+            $("#apodImg").attr("src", response.hdurl);
+            $("#modal-content").attr("src", response.hdurl);
+        } else if(response.media_type == "video"){
+            console.log(response.url);
+            $("#apodImg").css("display", "none");
+            $("#apodVideo").css("display", "block");
+            $("#apodVideo").attr("src", response.url);
+            $("#modal-content").attr("src", response.url);
+        }
+    }
+
+
     // A function to retrieve the APOD is declared
     var todaysAPOD = function(){
         var queryURL = "https://api.nasa.gov/planetary/apod?api_key=cmDLCxyrdP2i4juzoG1GGsSY4482bnXSdKLNPYmh";
@@ -52,22 +80,9 @@ $(document).ready(function(){
             // console.log(response.hdurl);
             // console.log(response.url);
 
-            // This statement determines what content is shown depending on the server response
-            if(response.media_type == "image"){
-                console.log(response.hdurl);
-                $("#apodVideo").css("display", "none");
-                $("#apodImg").css("display", "block");
-                $("#apodImg").attr("src", response.hdurl);
-                $("#modal-content").attr("src", response.hdurl);
-            } else if(response.media_type == "video"){
-                console.log(response.url);
-                $("#apodImg").css("display", "none");
-                $("#apodVideo").css("display", "block");
-                $("#apodVideo").attr("src", response.url);
-                $("#modal-content").attr("src", response.url);
-            }
-            // $("#mediaCaption").clear();
-            $("#mediaCaption").append(response.explanation);
+            checkMediaType(response);
+
+            getCaption(response);
 
             // console.log(response.date);
             // var newDiv = $('<div>');
@@ -98,22 +113,9 @@ $(document).ready(function(){
                 // console.log(response.hdurl);
                 // console.log(response.date);
 
-                // This statement determines what content is shown depending on the server response
-                if(response.media_type == "image"){
-                    console.log(response.hdurl);
-                    $("#apodVideo").css("display", "none");
-                    $("#apodImg").css("display", "block");
-                    $("#apodImg").attr("src", response.hdurl);
-                    $("#modal-content").attr("src", response.hdurl);
-                } else if(response.media_type == "video"){
-                    console.log(response.url);
-                    $("#apodImg").css("display", "none");
-                    $("#apodVideo").css("display", "block");
-                    $("#apodVideo").attr("src", response.url);
-                    $("#modal-content").attr("src", response.url);
-                }
-                // $("#mediaCaption").clear();
-                $("#mediaCaption").append(response.explanation);
+                checkMediaType(response);
+
+                getCaption(response);
                 // var newDiv = $('<div>');
                 // newDiv.append(inputDateDisplay, inputExDisplay, inputPicDisplay);
                 // $("#inputPic").html(newDiv);
