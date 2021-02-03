@@ -58,9 +58,15 @@ main {
 
 #widget{
   display: table;
+  text-align: center;
   margin:20px auto;
   padding: 5px;
   height:320px;
-  width: 320px;
+  width: 420px;
+}
+
+.card .card-title {
+  font-size: 24px;
+  font-weight: 620;
 }
 
