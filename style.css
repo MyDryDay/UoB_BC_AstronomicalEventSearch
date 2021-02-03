@@ -22,10 +22,16 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  
+  background: url("img/luostars.jpg");
+  background-size: cover;
+  background-position: center;
+  
 }
 
 main {
   flex: 1 0 auto;
+  
 }
 
 /*This ensures the footer sticks to the bottom of the page*/
