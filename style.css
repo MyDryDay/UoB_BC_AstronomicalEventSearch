@@ -5,6 +5,12 @@
   margin: 10px;
 }
 
+.header{
+  background: url("img/luostars.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
 /* This class ensures that the modal image is centered in the modal itself */
 .modal-img{
   display: block;
