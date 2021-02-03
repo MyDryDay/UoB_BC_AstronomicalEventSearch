@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).ready(function () {
     // This initializes the use of the multi-select dropdown menu on the navbar
     $("select").formSelect();
     // This assigns a value to the selected values (none at this point) and creates an empty array calles values
@@ -11,24 +11,24 @@ $(document).ready(function(){
         format: "yyyy/mm/dd",
         autoClose: true,
         // Upon selecting a date a function is run
-        onSelect: function(date){
+        onSelect: function (date) {
             // A date variable is declared and initialised with a new date object
             var date = new Date(date);
             console.log(date);
 
             // The following function takes the month and turns it into a two digit number. e.g. 1 -> 01, 9 -> 09 etc
-            function month2Digit(month){
+            function month2Digit(month) {
                 return (month < 10 ? "0" : "") + month;
             }
 
             // Using date object methods the date is converted into a shorthand yyyy-mm-dd format
             var year = date.getFullYear();
             var month = date.getMonth();
-            var twoDigitMonth = month2Digit(month+1);
+            var twoDigitMonth = month2Digit(month + 1);
             var day = date.getDate();
             // The formatted date is declared as a variable
             var selectedDate = year + "-" + twoDigitMonth + "-" + day;
-            console.log(selectedDate);  
+            console.log(selectedDate);
             dateAPOD(selectedDate);
         }
     });
@@ -37,12 +37,12 @@ $(document).ready(function(){
     $('.modal').modal();
 
     // A function to retrieve the APOD is declared
-    var todaysAPOD = function(){
+    var todaysAPOD = function () {
         var queryURL = "https://api.nasa.gov/planetary/apod?api_key=cmDLCxyrdP2i4juzoG1GGsSY4482bnXSdKLNPYmh";
         $.ajax({
             url: queryURL,
             method: 'GET'
-        }).then(function(response){
+        }).then(function (response) {
             console.log(response);
             console.log(queryURL);
             // var todayDateDisplay = $("<p>").text("Date: " + response.date);
@@ -53,13 +53,13 @@ $(document).ready(function(){
             // console.log(response.url);
 
             // This statement determines what content is shown depending on the server response
-            if(response.media_type == "image"){
+            if (response.media_type == "image") {
                 console.log(response.hdurl);
                 $("#apodVideo").css("display", "none");
                 $("#apodImg").css("display", "block");
                 $("#apodImg").attr("src", response.hdurl);
                 $("#modal-content").attr("src", response.hdurl);
-            } else if(response.media_type == "video"){
+            } else if (response.media_type == "video") {
                 console.log(response.url);
                 $("#apodImg").css("display", "none");
                 $("#apodVideo").css("display", "block");
@@ -99,13 +99,13 @@ $(document).ready(function(){
                 // console.log(response.date);
 
                 // This statement determines what content is shown depending on the server response
-                if(response.media_type == "image"){
+                if (response.media_type == "image") {
                     console.log(response.hdurl);
                     $("#apodVideo").css("display", "none");
                     $("#apodImg").css("display", "block");
                     $("#apodImg").attr("src", response.hdurl);
                     $("#modal-content").attr("src", response.hdurl);
-                } else if(response.media_type == "video"){
+                } else if (response.media_type == "video") {
                     console.log(response.url);
                     $("#apodImg").css("display", "none");
                     $("#apodVideo").css("display", "block");
@@ -119,39 +119,39 @@ $(document).ready(function(){
                 // $("#inputPic").html(newDiv);
             })
     }
-    
-        //This function displays the Moon phase for the day
-        function displayMoonPhase() {
-            var moonURL = "https://www.icalendar37.net/lunar/api/?lang=en&";
-            var today = new Date();
-            var dd = (today.getDate())
-            var mm = (today.getMonth() + 1);
-            var year = today.getFullYear();
-            $.ajax({
-                url: moonURL + "month" + "=" + mm + "&" + "year" + "=" + year,
-                method: "GET",
-            }).then(function (response) {
-                var moonPhase = $.parseJSON(response);
-                console.log(moonPhase);
-                console.log(moonURL + "month" + "=" + mm + "&" + "year" + "=" + year);
-                var currentDate = dd + " " + moonPhase.monthName + " " + moonPhase.year
-                var moonDiv = $("#ex4");
-                var dayDiv = "<div>" + "<b>" + currentDate + "</b>" + "</div>"
-                var moonSVG =  "<div shadow>" + moonPhase.phase[dd].svg + "</div>"
-                var phaseOfMoon = "<div>" + "<b>" + moonPhase.phase[dd].phaseName + " " +
-                "" + ((moonPhase.phase[dd].isPhaseLimit )? ""  :   Math.round(moonPhase.phase[dd].lighting) + "%") + "</b>" +
+
+    //This function displays the Moon phase for the day
+    function displayMoonPhase() {
+        var moonURL = "https://www.icalendar37.net/lunar/api/?lang=en&";
+        var today = new Date();
+        var dd = (today.getDate())
+        var mm = (today.getMonth() + 1);
+        var year = today.getFullYear();
+        $.ajax({
+            url: moonURL + "month" + "=" + mm + "&" + "year" + "=" + year,
+            method: "GET",
+        }).then(function (response) {
+            var moonPhase = $.parseJSON(response);
+            console.log(moonPhase);
+            console.log(moonURL + "month" + "=" + mm + "&" + "year" + "=" + year);
+            var currentDate = dd + " " + moonPhase.monthName + " " + moonPhase.year
+            var moonDiv = $("#ex4");
+            var dayDiv = "<div>" + "<b>" + currentDate + "</b>" + "</div>"
+            var moonSVG = "<div shadow>" + moonPhase.phase[dd].svg + "</div>"
+            var phaseOfMoon = "<div>" + "<b>" + moonPhase.phase[dd].phaseName + " " +
+                "" + ((moonPhase.phase[dd].isPhaseLimit) ? "" : Math.round(moonPhase.phase[dd].lighting) + "%") + "</b>" +
                 "</div>"
-                var moonHTML = dayDiv + moonSVG + phaseOfMoon
-                moonDiv.html(moonHTML);
-            });
-        }
-        displayMoonPhase();
+            var moonHTML = dayDiv + moonSVG + phaseOfMoon
+            moonDiv.html(moonHTML);
+        });
+    }
+    displayMoonPhase();
 })
 
 // This event states that upon pressing a key a function will be executed
-$("#locationQuery").on("keypress", function(e){
+$("#locationQuery").on("keypress", function (e) {
     // If the enter key is pressed then the user's input is assigned to variable q
-    if(e.key === "Enter"){
+    if (e.key === "Enter") {
         // Prevents the default action of the event
         e.preventDefault();
         var q = $("#locationQuery").val();
@@ -166,7 +166,7 @@ $("#locationQuery").on("keypress", function(e){
 
 // This function takes the user input previously assigned to variable q and concatenates it into the queryURL
 // It then calls the ajaxCall function
-var buildGeoCodeURL = function(q){
+var buildGeoCodeURL = function (q) {
     var queryURL = "http://api.openweathermap.org/geo/1.0/direct?q=" + q + "&appid=c7fb2f80502825ecbe90a5fece0767e4";
     // q = "city, country code" - birmingham, gb 
     console.log(queryURL);
@@ -174,11 +174,11 @@ var buildGeoCodeURL = function(q){
 }
 
 // This function handles the AJAX calls for the GeoCode & IPGeoLocation APIs
-var ajaxCall = function(queryURL){
+var ajaxCall = function (queryURL) {
     $.ajax({
         url: queryURL,
         method: "GET"
-    }).then(function(serverResponse){
+    }).then(function (serverResponse) {
         console.log(serverResponse);
         // The lat & lon are obtained for whichever city the user inputs
         var lat = serverResponse[0].lat;
@@ -188,12 +188,33 @@ var ajaxCall = function(queryURL){
 
         // The lat & lon are concatenated into the next queryURL
         var queryURL2 = "https://api.ipgeolocation.io/astronomy?apiKey=ae017480db3c4202bb6465acbc3845b1&lat=" + lat + "&long=" + lon;
-        
+
         $.ajax({
             url: queryURL2,
             method: "GET"
+        }).then(function (serverResponse) {
+            console.log(serverResponse);
+
+        });
+
+
+        // AstroAPI call 
+        var date = 2020-01-01;
+        console.log(lat);
+        var queryURL3 = "http://api.worldweatheronline.com/premium/v1/astronomy.ashx?key=3430ff6446954353b06203241210102" + "&q=" + lat + "," + lon + "&date=" + date + "&format=json";
+
+        $.ajax({
+            url: queryURL3,
+            method: "GET"
         }).then(function(serverResponse){
             console.log(serverResponse);
+
+            console.log(serverResponse.data.time_zone[0].moonrise);
+            console.log(serverResponse.data.time_zone[0].moonset);
+            console.log(serverResponse.data.time_zone[0].moon_phase);
+            console.log(serverResponse.data.time_zone[0].moon_illumination);
+            console.log(serverResponse.data.time_zone[0].sunrise);
+            console.log(serverResponse.data.time_zone[0].sunset);
 
         })
     })
