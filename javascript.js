@@ -36,25 +36,25 @@ $(document).ready(function () {
     // This initializes the use of the modals for images
     $('.modal').modal();
 
-    var getCaption = function(response){
-        if($("#mediaCaption") == ""){
+    var getCaption = function (response) {
+        if ($("#mediaCaption") == "") {
             $("#mediaCaption").append(response.explanation);
-        }else if($("#mediaCaption") !== ""){
+        } else if ($("#mediaCaption") !== "") {
             $("#mediaCaption").empty();
             $("#mediaCaption").append(response.explanation);
         }
     }
 
 
-    var checkMediaType = function(response){
+    var checkMediaType = function (response) {
         // This statement determines what content is shown depending on the server response
-        if(response.media_type == "image"){
+        if (response.media_type == "image") {
             console.log(response.hdurl);
             $("#apodVideo").css("display", "none");
             $("#apodImg").css("display", "block");
             $("#apodImg").attr("src", response.hdurl);
             $("#modal-content").attr("src", response.hdurl);
-        } else if(response.media_type == "video"){
+        } else if (response.media_type == "video") {
             console.log(response.url);
             $("#apodImg").css("display", "none");
             $("#apodVideo").css("display", "block");
@@ -201,14 +201,14 @@ var ajaxCall = function (queryURL) {
 
 
         // AstroAPI call 
-        var date = 2020-01-01;
+        var date = 2020 - 01 - 01;
         console.log(lat);
         var queryURL3 = "http://api.worldweatheronline.com/premium/v1/astronomy.ashx?key=3430ff6446954353b06203241210102" + "&q=" + lat + "," + lon + "&date=" + date + "&format=json";
 
         $.ajax({
             url: queryURL3,
             method: "GET"
-        }).then(function(serverResponse){
+        }).then(function (serverResponse) {
             console.log(serverResponse);
 
             console.log(serverResponse.data.time_zone[0].moonrise);
@@ -225,18 +225,37 @@ var ajaxCall = function (queryURL) {
             var moonset = serverResponse.data.time_zone[0].moonset;
             console.log(sunrise, sunset, moonrise, moonset)
             sunAndMoonIcon();
+            setAndRiseTimings(serverResponse);
         });
     });
 
+    //Function to display times for sunrise, moonrise, sunset & moonset
+    function setAndRiseTimings(serverResponse) {
+        
+        var sunrise = serverResponse.data.time_zone[0].sunrise;
+        var sunset = serverResponse.data.time_zone[0].sunset;
+        var moonrise = serverResponse.data.time_zone[0].moonrise;
+        var moonset = serverResponse.data.time_zone[0].moonset;
+        console.log(sunrise, sunset, moonrise, moonset)
+
+        var sunriseP = $("#sunrise-p");
+        sunriseP.text("Sunrise: " + sunrise);
+        var moonriseP = $("#moonrise-p");
+        moonriseP.text("Moonrise: " + moonrise);
+        var sunsetP = $("#sunset-p");
+        sunsetP.text("Sunset: " + sunset);
+        var moonsetP = $("#moonset-p");
+        moonsetP.text("Moonset: " + moonset);
+    }
     //Function to display icons for sunrise, moonrise, sunset & moonset when user inputs location
-    function sunAndMoonIcon () {
-        sunriseIMG = $("#sunrise-icon");
-        sunriseIMG.attr({"src":"img/sunrise.svg", "height":"50px", "width":"50px"});
-        sunsetIMG = $("#sunset-icon");
-        sunsetIMG.attr({"src":"img/sunset.svg", "height":"50px", "width":"50px"})
-        moonriseIMG = $("#moonrise-icon");
-        moonriseIMG.attr({"src":"img/moonrise.svg", "height":"50px", "width":"50px"});
-        moonsetIMG = $("#moonset-icon");
-        moonsetIMG.attr({"src":"img/sunrise.svg", "height":"50px", "width":"50px"});
-     }
+    function sunAndMoonIcon() {
+        var sunriseIMG = $("#sunrise-icon");
+        sunriseIMG.attr({ "src": "img/sunrise.svg", "height": "50px", "width": "50px" });
+        var sunsetIMG = $("#sunset-icon");
+        sunsetIMG.attr({ "src": "img/sunset.svg", "height": "50px", "width": "50px" })
+        var moonriseIMG = $("#moonrise-icon");
+        moonriseIMG.attr({ "src": "img/moonrise.svg", "height": "50px", "width": "50px" });
+        var moonsetIMG = $("#moonset-icon");
+        moonsetIMG.attr({ "src": "img/moonset.svg", "height": "50px", "width": "50px" });
+    }
 }
