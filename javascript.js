@@ -66,6 +66,8 @@ $(document).ready(function(){
                 $("#apodVideo").attr("src", response.url);
                 $("#modal-content").attr("src", response.url);
             }
+            // $("#mediaCaption").clear();
+            $("#mediaCaption").append(response.explanation);
 
             // console.log(response.date);
             // var newDiv = $('<div>');
@@ -110,6 +112,8 @@ $(document).ready(function(){
                     $("#apodVideo").attr("src", response.url);
                     $("#modal-content").attr("src", response.url);
                 }
+                // $("#mediaCaption").clear();
+                $("#mediaCaption").append(response.explanation);
                 // var newDiv = $('<div>');
                 // newDiv.append(inputDateDisplay, inputExDisplay, inputPicDisplay);
                 // $("#inputPic").html(newDiv);
@@ -120,10 +124,10 @@ $(document).ready(function(){
 
 // This event states that upon pressing a key a function will be executed
 $("#locationQuery").on("keypress", function(e){
-    // Prevents the default action of the event
-    e.preventDefault();
     // If the enter key is pressed then the user's input is assigned to variable q
     if(e.key === "Enter"){
+        // Prevents the default action of the event
+        e.preventDefault();
         var q = $("#locationQuery").val();
         // The following removes white space/spaces from the input
         q = q.replace(/\s/g, "");
