@@ -80,28 +80,9 @@ $(document).ready(function () {
             // console.log(response.hdurl);
             // console.log(response.url);
 
-<<<<<<< HEAD
-            // This statement determines what content is shown depending on the server response
-            if (response.media_type == "image") {
-                console.log(response.hdurl);
-                $("#apodVideo").css("display", "none");
-                $("#apodImg").css("display", "block");
-                $("#apodImg").attr("src", response.hdurl);
-                $("#modal-content").attr("src", response.hdurl);
-            } else if (response.media_type == "video") {
-                console.log(response.url);
-                $("#apodImg").css("display", "none");
-                $("#apodVideo").css("display", "block");
-                $("#apodVideo").attr("src", response.url);
-                $("#modal-content").attr("src", response.url);
-            }
-            // $("#mediaCaption").clear();
-            $("#mediaCaption").append(response.explanation);
-=======
             checkMediaType(response);
 
             getCaption(response);
->>>>>>> 1947b95f5bdd3c9073b527570d99d6e176e14d2c
 
             // console.log(response.date);
             // var newDiv = $('<div>');
@@ -132,28 +113,9 @@ $(document).ready(function () {
                 // console.log(response.hdurl);
                 // console.log(response.date);
 
-<<<<<<< HEAD
-                // This statement determines what content is shown depending on the server response
-                if (response.media_type == "image") {
-                    console.log(response.hdurl);
-                    $("#apodVideo").css("display", "none");
-                    $("#apodImg").css("display", "block");
-                    $("#apodImg").attr("src", response.hdurl);
-                    $("#modal-content").attr("src", response.hdurl);
-                } else if (response.media_type == "video") {
-                    console.log(response.url);
-                    $("#apodImg").css("display", "none");
-                    $("#apodVideo").css("display", "block");
-                    $("#apodVideo").attr("src", response.url);
-                    $("#modal-content").attr("src", response.url);
-                }
-                // $("#mediaCaption").clear();
-                $("#mediaCaption").append(response.explanation);
-=======
                 checkMediaType(response);
 
                 getCaption(response);
->>>>>>> 1947b95f5bdd3c9073b527570d99d6e176e14d2c
                 // var newDiv = $('<div>');
                 // newDiv.append(inputDateDisplay, inputExDisplay, inputPicDisplay);
                 // $("#inputPic").html(newDiv);
