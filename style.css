@@ -80,6 +80,11 @@ main {
   background-color: #311b92;
 }
 
+/*Changes background colour when a day is selected*/
+.datepicker-table td.is-selected {
+  background-color: #311b92;
+  color: #fff;
+}
 
 /* .card .card-title {
   font-size: 24px;
