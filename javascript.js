@@ -33,8 +33,6 @@ $(document).ready(function () {
 
     // The function to retrieve the APOD is initialised
     todaysAPOD();
-
-    displayMoonPhase();
 })
 
 // This event states that upon pressing a key a function will be executed
@@ -48,7 +46,9 @@ $("#searchBtn").on("click", function (e) {
         console.log(q);
         // A function to build the queryURL for the GeoCode API is built
         buildGeoCodeURL(q);
-    
+
+        $("#ex4").css("display", "block");
+        displayMoonPhase();
 
 });
 
@@ -139,6 +139,7 @@ var ajaxCall = function (queryURL) {
             console.log(sunrise, sunset, moonrise, moonset)
             sunAndMoonIcon();
             setAndRiseTimings(serverResponse);
+            $("#widget").css("display", "block")
         });
     });
 
