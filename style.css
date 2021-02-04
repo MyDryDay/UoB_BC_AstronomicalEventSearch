@@ -22,7 +22,7 @@
   width: 900px;
 }
 
-.text-colour{
+.text-color{
   color: white;
 }
 
@@ -44,7 +44,7 @@ input, select, textarea{
 
 main {
   flex: 1 0 auto;
-  
+  /* color: white; */
 }
 
 /*This ensures the footer sticks to the bottom of the page*/
@@ -68,7 +68,8 @@ main {
   text-align: center; 
   height: auto;
   width: auto;
-  border: 1px solid black;
+  border: 1px solid white;
+  color: white;
 }
 #ex4 [shadow]{
   filter:drop-shadow(0 0 25px rgb(0,50,50));
