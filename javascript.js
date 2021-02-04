@@ -1,11 +1,5 @@
 $(document).ready(function () {
-    // This initializes the use of the multi-select dropdown menu on the navbar
-    $("select").formSelect();
-    // This assigns a value to the selected values (none at this point) and creates an empty array calles values
-    var values = $("select").formSelect("getSelectedValues");
-    // This prints the values array to the console
-    console.log(values);
-
+ 
     // This initialises the datepicker
     $("#datepicker").datepicker({
         format: "yyyy/mm/dd",
@@ -33,26 +27,7 @@ $(document).ready(function () {
         }
     });
 
-    // This selects s resonse based on which Options were selected by the User.//
-        
-    $( "div").click(function() {
-
-        if ( $( "#pic_of_day").hasClass("selected")) {
-            dateAPOD();
-        }
-
-        if ( $( "#moonphaseop").hasClass("selected")) {
-            displayMoonPhase();
-        }
-
-        if ( $( "#sunriseop").hasClass("selected")) {
-            setAndRiseTimings();
-
-      } else {
-        
-      }
-
-    });
+  
     // This initializes the use of the modals for images
     $('.modal').modal();
 
@@ -63,9 +38,8 @@ $(document).ready(function () {
 })
 
 // This event states that upon pressing a key a function will be executed
-$("#locationQuery").on("keypress", function (e) {
-    // If the enter key is pressed then the user's input is assigned to variable q
-    if (e.key === "Enter") {
+$("#searchBtn").on("click", function (e) {
+   
         // Prevents the default action of the event
         e.preventDefault();
         var q = $("#locationQuery").val();
@@ -74,7 +48,6 @@ $("#locationQuery").on("keypress", function (e) {
         console.log(q);
         // A function to build the queryURL for the GeoCode API is built
         buildGeoCodeURL(q);
-    }
     
 
 });
@@ -181,21 +154,12 @@ var todaysAPOD = function () {
     }).then(function (response) {
         console.log(response);
         console.log(queryURL);
-        // var todayDateDisplay = $("<p>").text("Date: " + response.date);
-        // var todayExDisplay = $("<p>").text("About: " + response.explanation);
-        // var todayPicDisplay = $('<img>').attr("src", response.hdurl);
-        // todayPicDisplay.attr("style", "height: 350px; width: 330px");
-        // console.log(response.hdurl);
-        // console.log(response.url);
+
 
         checkMediaType(response);
 
         getCaption(response);
 
-        // console.log(response.date);
-        // var newDiv = $('<div>');
-        // newDiv.append(todayDateDisplay, todayExDisplay, todayPicDisplay);
-        // $("#todayPic").html(newDiv);
     })
 }
 
@@ -208,19 +172,12 @@ function dateAPOD(selectedDate) {
     }).then(function (response) {
             console.log(response);
             console.log(dateQueryURL);
-            // var inputDateDisplay = $("<p>").text("Date: " + response.date);
-            // var inputExDisplay = $("<p>").text("About: " + response.explanation);
-            // var inputPicDisplay = $('<img>').attr("src", response.hdurl);
-            // inputPicDisplay.attr("style", "height: 350px; width: 330px");
-            // console.log(response.hdurl);
-            // console.log(response.date);
+
 
             checkMediaType(response);
 
             getCaption(response);
-            // var newDiv = $('<div>');
-            // newDiv.append(inputDateDisplay, inputExDisplay, inputPicDisplay);
-            // $("#inputPic").html(newDiv);
+
     })
 }
 

@@ -42,6 +42,10 @@ input, select, textarea{
   
 }
 
+.select-dropdown {
+  color:black;
+}
+
 main {
   flex: 1 0 auto;
   /* color: white; */
