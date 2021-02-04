@@ -149,35 +149,7 @@ var ajaxCall = function (queryURL) {
         });
     });
 
-    //Function to display times for sunrise, moonrise, sunset & moonset
-    function setAndRiseTimings(serverResponse) {
-        
-        var sunrise = serverResponse.data.time_zone[0].sunrise;
-        var sunset = serverResponse.data.time_zone[0].sunset;
-        var moonrise = serverResponse.data.time_zone[0].moonrise;
-        var moonset = serverResponse.data.time_zone[0].moonset;
-        console.log(sunrise, sunset, moonrise, moonset)
-
-        var sunriseP = $("#sunrise-p");
-        sunriseP.text("Sunrise: " + sunrise);
-        var moonriseP = $("#moonrise-p");
-        moonriseP.text("Moonrise: " + moonrise);
-        var sunsetP = $("#sunset-p");
-        sunsetP.text("Sunset: " + sunset);
-        var moonsetP = $("#moonset-p");
-        moonsetP.text("Moonset: " + moonset);
-    }
-    //Function to display icons for sunrise, moonrise, sunset & moonset when user inputs location
-    function sunAndMoonIcon() {
-        var sunriseIMG = $("#sunrise-icon");
-        sunriseIMG.attr({ "src": "img/sunrise.svg", "height": "50px", "width": "50px" });
-        var sunsetIMG = $("#sunset-icon");
-        sunsetIMG.attr({ "src": "img/sunset.svg", "height": "50px", "width": "50px" })
-        var moonriseIMG = $("#moonrise-icon");
-        moonriseIMG.attr({ "src": "img/moonrise.svg", "height": "50px", "width": "50px" });
-        var moonsetIMG = $("#moonset-icon");
-        moonsetIMG.attr({ "src": "img/moonset.svg", "height": "50px", "width": "50px" });
-    }
+   
 }
 
 // A function to retrieve the APOD is declared
@@ -213,8 +185,7 @@ function dateAPOD(selectedDate) {
     $.ajax({
         url: dateQueryURL,
         method: 'GET'
-    })
-        .then(function (response) {
+    }).then(function (response) {
             console.log(response);
             console.log(dateQueryURL);
             // var inputDateDisplay = $("<p>").text("Date: " + response.date);
@@ -230,7 +201,38 @@ function dateAPOD(selectedDate) {
             // var newDiv = $('<div>');
             // newDiv.append(inputDateDisplay, inputExDisplay, inputPicDisplay);
             // $("#inputPic").html(newDiv);
-        })
+    })
+}
+
+ //Function to display times for sunrise, moonrise, sunset & moonset
+ function setAndRiseTimings(serverResponse) {
+        
+    var sunrise = serverResponse.data.time_zone[0].sunrise;
+    var sunset = serverResponse.data.time_zone[0].sunset;
+    var moonrise = serverResponse.data.time_zone[0].moonrise;
+    var moonset = serverResponse.data.time_zone[0].moonset;
+    console.log(sunrise, sunset, moonrise, moonset)
+
+    var sunriseP = $("#sunrise-p");
+    sunriseP.text("Sunrise: " + sunrise);
+    var moonriseP = $("#moonrise-p");
+    moonriseP.text("Moonrise: " + moonrise);
+    var sunsetP = $("#sunset-p");
+    sunsetP.text("Sunset: " + sunset);
+    var moonsetP = $("#moonset-p");
+    moonsetP.text("Moonset: " + moonset);
+}
+
+//Function to display icons for sunrise, moonrise, sunset & moonset when user inputs location
+function sunAndMoonIcon() {
+    var sunriseIMG = $("#sunrise-icon");
+    sunriseIMG.attr({ "src": "img/sunrise.svg", "height": "50px", "width": "50px" });
+    var sunsetIMG = $("#sunset-icon");
+    sunsetIMG.attr({ "src": "img/sunset.svg", "height": "50px", "width": "50px" })
+    var moonriseIMG = $("#moonrise-icon");
+    moonriseIMG.attr({ "src": "img/moonrise.svg", "height": "50px", "width": "50px" });
+    var moonsetIMG = $("#moonset-icon");
+    moonsetIMG.attr({ "src": "img/moonset.svg", "height": "50px", "width": "50px" });
 }
 
 //This function displays the Moon phase for the day

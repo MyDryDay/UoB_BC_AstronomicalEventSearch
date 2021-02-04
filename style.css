@@ -18,6 +18,8 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
+  height: 700px;
+  width: 900px;
 }
 
 
@@ -42,13 +44,17 @@ main {
   padding: 20px;
 }
 
+.footer{
+  color: white;
+}
+
 /*Styles the div displaying the Moon phase*/
 #ex4 {
-  display: table;    
+  /* display: table;     */
   margin:20px auto;
   text-align: center; 
-  height: 200px;
-  width: 210px;
+  height: auto;
+  width: auto;
   border: 1px solid black;
 }
 #ex4 [shadow]{
@@ -57,16 +63,26 @@ main {
   }
 
 #widget{
-  display: table;
+  /* display: table; */
   text-align: center;
-  margin:20px auto;
+  /* margin:20px auto; */
   padding: 5px;
-  height:320px;
-  width: 420px;
+  height:auto;
+  width: auto;
 }
 
-.card .card-title {
+.card .card-title{
+  font-size: 100%;
+  color: white;
+}
+
+.datepicker-date-display{
+  background-color: #311b92;
+}
+
+
+/* .card .card-title {
   font-size: 24px;
   font-weight: 620;
-}
+} */
 
