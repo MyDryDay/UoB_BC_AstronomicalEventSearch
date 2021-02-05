@@ -61,7 +61,7 @@ $("#searchBtn").on("click", function (e) {
 // This function takes the user input previously assigned to variable q and concatenates it into the queryURL
 // It then calls the ajaxCall function
 var buildGeoCodeURL = function (q) {
-    var queryURL = "http://api.openweathermap.org/geo/1.0/direct?q=" + q + "&appid=c7fb2f80502825ecbe90a5fece0767e4";
+    var queryURL = "https://api.openweathermap.org/geo/1.0/direct?q=" + q + "&appid=c7fb2f80502825ecbe90a5fece0767e4";
     // q = "city, country code" - birmingham, gb 
     console.log(queryURL);
     ajaxCall(queryURL);
