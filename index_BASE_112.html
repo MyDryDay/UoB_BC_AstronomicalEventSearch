@@ -10,8 +10,8 @@
     <link type="text/css" rel="stylesheet" href="style.css">
     <title>AstroSearch</title>
     <style>
-
-
+       
+      
     </style>
 </head>
 
@@ -32,17 +32,9 @@
                 </div>
             </nav>
         </div>
-
+                            
         <!-- This is the code for the search options -->
         <div class="row">
-
-
-            <!-- Date picker -->
-
-            <div class="col s3">
-                <p><input type="text" id="datepicker" placeholder="Date" /></p>
-            </div>
-
             <!-- This is the search bar -->
             <div class="col s6">
                 <nav>
@@ -59,15 +51,24 @@
                     </div>
                 </nav>
             </div>
-            
+
+            <!-- Date picker -->
+
+            <div class="col s3">
+                <p><input type="text" id="datepicker" placeholder="Date"/></p>
+
+            </div>
 
             <!-- This is the multi-select dropdown menu -->
-            <div class="col s3 center-align white-text valign-wrapper">
-                <button class="btn waves-effect waves-light btn-large deep-purple darken-4" type="submit" name="action" id="searchBtn">Search
-                    <i class="material-icons right">search</i>
-                  </button>
+            <div class="col s3 input-field center-align white-text">
+                <select multiple>
+                    <option value="" disabled selected>Options</option>
+                    <option id = "pic_of_dayop" value="1">Picture of the Day</option>
+                    <option id = "moonphaseop" value="2">Moon Phase for Today</option>
+                    <option id = "sunriseop" value="3">Moonrise/set, Sunrise/set</option>
+                </select>
             </div>
-        </div> -->
+        </div>
 
         <div class="divider"></div>
 
@@ -75,12 +76,10 @@
         <div class="row section">
             <div class="col s12">
 
-                <iframe width="200" height="125" id="apodVideo" class="img1 waves-effect waves-light modal-trigger"
-                    alt="NASA's Astronomy Picture of the Day" href="#modal1"></iframe>
-                <img id="apodImg" class="responsive-img img1 waves-effect waves-light modal-trigger"
-                    alt="NASA's Astronomy Picture of the Day" href="#modal1">
+                <iframe width="200" height="125" id="apodVideo" class="img1 waves-effect waves-light modal-trigger" alt="NASA's Astronomy Picture of the Day" href="#modal1"></iframe>
+                <img id="apodImg" class="responsive-img img1 waves-effect waves-light modal-trigger" alt="NASA's Astronomy Picture of the Day" href="#modal1">
                 <p id="mediaCaption" class="center-align text-color"></p>
-
+                
 
             </div>
             <!-- This is the modal content, which only appears if the image is clicked on -->
@@ -120,7 +119,7 @@
             </div>
         </div>
 
-
+        
 
     </main>
     <footer class="container footer-div">

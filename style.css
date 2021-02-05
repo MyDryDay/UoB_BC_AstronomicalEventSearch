@@ -42,6 +42,10 @@ input, select, textarea{
   
 }
 
+.select-dropdown {
+  color:black;
+}
+
 main {
   flex: 1 0 auto;
   /* color: white; */
@@ -70,6 +74,7 @@ main {
   width: auto;
   border: 1px solid white;
   color: white;
+  display: none;
 }
 #ex4 [shadow]{
   filter:drop-shadow(0 0 25px rgb(0,50,50));
@@ -83,6 +88,7 @@ main {
   padding: 5px;
   height:auto;
   width: auto;
+  display: none;
 }
 
 .card .card-title{
