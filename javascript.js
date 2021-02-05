@@ -1,5 +1,5 @@
 $(document).ready(function () {
- 
+
     // This initialises the datepicker
     $("#datepicker").datepicker({
         format: "yyyy/mm/dd",
@@ -27,7 +27,6 @@ $(document).ready(function () {
         }
     });
 
-  
     // This initializes the use of the modals for images
     $('.modal').modal();
 
@@ -68,25 +67,25 @@ var buildGeoCodeURL = function (q) {
     ajaxCall(queryURL);
 }
 
-var getCaption = function(response){
-    if($("#mediaCaption") == ""){
+var getCaption = function (response) {
+    if ($("#mediaCaption") == "") {
         $("#mediaCaption").append(response.explanation);
-    }else if($("#mediaCaption") !== ""){
+    } else if ($("#mediaCaption") !== "") {
         $("#mediaCaption").empty();
         $("#mediaCaption").append(response.explanation);
     }
 }
 
 
-var checkMediaType = function(response){
+var checkMediaType = function (response) {
     // This statement determines what content is shown depending on the server response
-    if(response.media_type == "image"){
+    if (response.media_type == "image") {
         console.log(response.hdurl);
         $("#apodVideo").css("display", "none");
         $("#apodImg").css("display", "block");
         $("#apodImg").attr("src", response.hdurl);
         $("#modal-content").attr("src", response.hdurl);
-    } else if(response.media_type == "video"){
+    } else if (response.media_type == "video") {
         console.log(response.url);
         $("#apodImg").css("display", "none");
         $("#apodVideo").css("display", "block");
@@ -150,7 +149,7 @@ var ajaxCall = function (queryURL) {
         });
     });
 
-   
+
 }
 
 // A function to retrieve the APOD is declared
@@ -178,19 +177,19 @@ function dateAPOD(selectedDate) {
         url: dateQueryURL,
         method: 'GET'
     }).then(function (response) {
-            console.log(response);
-            console.log(dateQueryURL);
+        console.log(response);
+        console.log(dateQueryURL);
 
 
-            checkMediaType(response);
+        checkMediaType(response);
 
-            getCaption(response);
+        getCaption(response);
 
     })
 }
 
- //Function to display times for sunrise, moonrise, sunset & moonset
- function setAndRiseTimings(serverResponse) {
+//Function to display times for sunrise, moonrise, sunset & moonset
+function setAndRiseTimings(serverResponse) {
     //These timing variables are derived from the Object returned from the WorldWeatherOnline API   
     var sunrise = serverResponse.data.time_zone[0].sunrise;
     var sunset = serverResponse.data.time_zone[0].sunset;
