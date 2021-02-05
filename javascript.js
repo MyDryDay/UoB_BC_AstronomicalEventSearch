@@ -212,13 +212,13 @@ function dateAPOD(selectedDate) {
 
  //Function to display times for sunrise, moonrise, sunset & moonset
  function setAndRiseTimings(serverResponse) {
-        
+    //These timing variables are derived from the Object returned from the WorldWeatherOnline API   
     var sunrise = serverResponse.data.time_zone[0].sunrise;
     var sunset = serverResponse.data.time_zone[0].sunset;
     var moonrise = serverResponse.data.time_zone[0].moonrise;
     var moonset = serverResponse.data.time_zone[0].moonset;
     console.log(sunrise, sunset, moonrise, moonset)
-
+    //Sun and Moon widget is populated with the timings for sun/moon set and rise. 
     var sunriseP = $("#sunrise-p");
     sunriseP.text("Sunrise: " + sunrise);
     var moonriseP = $("#moonrise-p");
@@ -252,20 +252,21 @@ function displayMoonPhase() {
         url: moonURL + "month" + "=" + mm + "&" + "year" + "=" + year,
         method: "GET",
     }).then(function (response) {
-        var moonPhase = $.parseJSON(response);
+        var moonPhase = $.parseJSON(response);  //parses the response from the Lunar calendar API and stores it into the moonPhase variable
         console.log(moonPhase);
         console.log(moonURL + "month" + "=" + mm + "&" + "year" + "=" + year);
-        var currentDate = dd + " " + moonPhase.monthName + " " + moonPhase.year
+        var currentDate = dd + " " + moonPhase.monthName + " " + moonPhase.year //Gives you the current date based on local time
         var moonDiv = $("#ex4");
         var dayDiv = "<div>" + "<b>" + currentDate + "</b>" + "</div>"
-        var moonSVG = "<div shadow>" + moonPhase.phase[dd].svg + "</div>"
+        var moonSVG = "<div shadow>" + moonPhase.phase[dd].svg + "</div>" //Gives you the SVG of the moon
         var phaseOfMoon = "<div>" + "<b>" + moonPhase.phase[dd].phaseName + " " +
             "" + ((moonPhase.phase[dd].isPhaseLimit) ? "" : Math.round(moonPhase.phase[dd].lighting) + "%") + "</b>" +
-            "</div>"
+            "</div>" //Returns the phase the moon is currently in along with the percentage
         var moonHTML = dayDiv + moonSVG + phaseOfMoon
         moonDiv.html(moonHTML);
     });
 }
+<<<<<<< HEAD
 
 
 
@@ -299,3 +300,5 @@ var astroAPI = function(){
 
     });
 }
+=======
+>>>>>>> 0446f6a43edb725a16aec1f339126db8964aeab8

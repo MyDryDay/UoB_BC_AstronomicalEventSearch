@@ -25,7 +25,7 @@
                 <div class="nav-wrapper transparent header">
                     <a href="#" class="brand-logo center">AstroSearch</a>
                     <ul class="right hide-on-med-and-down">
-                        <li class="active"><a href="https://www.nasa.gov/">NASA</a></li>
+                        <li class="active"><a href="https://www.nasa.gov/checkout">NASA</a></li>
                         <li><a href="https://mars.nasa.gov/mer/">Mars Rover</a></li>
                         <li><a href="https://apod.nasa.gov/apod/astropix.html">NASA Picture Of The Day</a></li>
                     </ul>
@@ -40,8 +40,10 @@
                 <nav>
                     <div class="nav-wrapper">
                         <form>
+
                             <div class="input-field deep-purple darken-4">
                                 <input type="search" id="locationQuery" placeholder="e.g. York" required>
+
                                 <label class="label-icon" for="search"><i class="material-icons">search</i></label>
                                 <i class="material-icons">close</i>
                             </div>
@@ -51,17 +53,19 @@
             </div>
 
             <!-- Date picker -->
+
             <div class="col s3">
-                <p>Date:<input type="text" id="datepicker"/></p>
+                <p>Date:<input type="text" id="datepicker" placeholder="Date"/></p>
+
             </div>
 
             <!-- This is the multi-select dropdown menu -->
-            <div class="col s3 input-field center-align">
+            <div class="col s3 input-field center-align white-text">
                 <select multiple>
                     <option value="" disabled selected>Options</option>
-                    <option value="1">Option #1</option>
-                    <option value="2">Option #2</option>
-                    <option value="3">Option #3</option>
+                    <option value="1">Picture of the Day</option>
+                    <option value="2">Moon Phase for Today</option>
+                    <option value="3">Moonrise/set and Sunrise/set</option>
                 </select>
             </div>
         </div>
@@ -71,10 +75,12 @@
         <!-- This is for the text area with the image -->
         <div class="row section">
             <div class="col s12">
+
                 <iframe width="200" height="125" id="apodVideo" class="img1 waves-effect waves-light modal-trigger" alt="NASA's Astronomy Picture of the Day" href="#modal1"></iframe>
                 <img id="apodImg" class="responsive-img img1 waves-effect waves-light modal-trigger" alt="NASA's Astronomy Picture of the Day" href="#modal1">
                 <p id="mediaCaption" class="center-align"></p>
                 
+
             </div>
             <!-- This is the modal content, which only appears if the image is clicked on -->
             <div id="modal1" class="modal">

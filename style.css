@@ -22,16 +22,29 @@
   width: 900px;
 }
 
-
+.text-colour{
+  color: white;
+}
 
 body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  
+  background: url("img/luostars.jpg");
+  background-size: cover;
+  background-position: center;
+  
+}
+
+input, select, textarea{
+  color: white;
+  
 }
 
 main {
   flex: 1 0 auto;
+  
 }
 
 /*This ensures the footer sticks to the bottom of the page*/
@@ -80,6 +93,11 @@ main {
   background-color: #311b92;
 }
 
+/*Changes background colour when a day is selected*/
+.datepicker-table td.is-selected {
+  background-color: #311b92;
+  color: #fff;
+}
 
 /* .card .card-title {
   font-size: 24px;
