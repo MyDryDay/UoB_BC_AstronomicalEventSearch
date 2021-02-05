@@ -64,7 +64,7 @@ $("#locationQuery").on("keypress", function (e) {
 // This function takes the user input previously assigned to variable q and concatenates it into the queryURL
 // It then calls the ajaxCall function
 var buildGeoCodeURL = function (q) {
-    var queryURL = "http://api.openweathermap.org/geo/1.0/direct?q=" + q + "&appid=c7fb2f80502825ecbe90a5fece0767e4";
+    var queryURL = "https://api.openweathermap.org/geo/1.0/direct?q=" + q + "&appid=c7fb2f80502825ecbe90a5fece0767e4";
     // q = "city, country code" - birmingham, gb 
     console.log(queryURL);
     ajaxCall(queryURL);
@@ -125,7 +125,7 @@ var ajaxCall = function (queryURL) {
         // AstroAPI call 
         // var date = 2020 - 01 - 01;
         console.log(lat);
-        var queryURL3 = "http://api.worldweatheronline.com/premium/v1/astronomy.ashx?key=3430ff6446954353b06203241210102" + "&q=" + lat + "," + lon + "&date=" + selectedDate + "&format=json";
+        var queryURL3 = "https://api.worldweatheronline.com/premium/v1/astronomy.ashx?key=3430ff6446954353b06203241210102" + "&q=" + lat + "," + lon + "&date=" + selectedDate + "&format=json";
 
         $.ajax({
             url: queryURL3,
