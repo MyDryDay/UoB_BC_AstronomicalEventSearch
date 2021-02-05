@@ -266,12 +266,11 @@ function displayMoonPhase() {
         moonDiv.html(moonHTML);
     });
 }
-<<<<<<< HEAD
 
 
 
 var astroAPI = function(){
-    var queryURL3 = "http://api.worldweatheronline.com/premium/v1/astronomy.ashx?key=3430ff6446954353b06203241210102" + "&q=" + lat + "," + lon + "&date=" + selectedDate + "&format=json";
+    var queryURL3 = "https://api.worldweatheronline.com/premium/v1/astronomy.ashx?key=3430ff6446954353b06203241210102" + "&q=" + lat + "," + lon + "&date=" + selectedDate + "&format=json";
 
     $.ajax({
         url: queryURL3,
@@ -300,5 +299,3 @@ var astroAPI = function(){
 
     });
 }
-=======
->>>>>>> 0446f6a43edb725a16aec1f339126db8964aeab8
