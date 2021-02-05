@@ -27,7 +27,7 @@ $(document).ready(function () {
             var twoDigitMonth = month2Digit(month + 1);
             var day = date.getDate();
             // The formatted date is declared as a variable
-            var selectedDate = year + "-" + twoDigitMonth + "-" + day;
+            selectedDate = year + "-" + twoDigitMonth + "-" + day;
             console.log(selectedDate);
             dateAPOD(selectedDate);
         }
@@ -41,6 +41,8 @@ $(document).ready(function () {
 
     displayMoonPhase();
 })
+
+var selectedDate;
 
 // This event states that upon pressing a key a function will be executed
 $("#locationQuery").on("keypress", function (e) {
@@ -121,9 +123,9 @@ var ajaxCall = function (queryURL) {
 
 
         // AstroAPI call 
-        var date = 2020 - 01 - 01;
+        // var date = 2020 - 01 - 01;
         console.log(lat);
-        var queryURL3 = "http://api.worldweatheronline.com/premium/v1/astronomy.ashx?key=3430ff6446954353b06203241210102" + "&q=" + lat + "," + lon + "&date=" + date + "&format=json";
+        var queryURL3 = "http://api.worldweatheronline.com/premium/v1/astronomy.ashx?key=3430ff6446954353b06203241210102" + "&q=" + lat + "," + lon + "&date=" + selectedDate + "&format=json";
 
         $.ajax({
             url: queryURL3,
@@ -146,6 +148,10 @@ var ajaxCall = function (queryURL) {
             console.log(sunrise, sunset, moonrise, moonset)
             sunAndMoonIcon();
             setAndRiseTimings(serverResponse);
+
+
+
+           
         });
     });
 
@@ -258,5 +264,38 @@ function displayMoonPhase() {
             "</div>"
         var moonHTML = dayDiv + moonSVG + phaseOfMoon
         moonDiv.html(moonHTML);
+    });
+}
+
+
+
+var astroAPI = function(){
+    var queryURL3 = "http://api.worldweatheronline.com/premium/v1/astronomy.ashx?key=3430ff6446954353b06203241210102" + "&q=" + lat + "," + lon + "&date=" + selectedDate + "&format=json";
+
+    $.ajax({
+        url: queryURL3,
+        method: "GET"
+    }).then(function (serverResponse) {
+        console.log(serverResponse);
+
+        console.log(serverResponse.data.time_zone[0].moonrise);
+        console.log(serverResponse.data.time_zone[0].moonset);
+        console.log(serverResponse.data.time_zone[0].moon_phase);
+        console.log(serverResponse.data.time_zone[0].moon_illumination);
+        console.log(serverResponse.data.time_zone[0].sunrise);
+        console.log(serverResponse.data.time_zone[0].sunset);
+
+        //Server response saved into variable
+        var sunrise = serverResponse.data.time_zone[0].sunrise;
+        var sunset = serverResponse.data.time_zone[0].sunset;
+        var moonrise = serverResponse.data.time_zone[0].moonrise;
+        var moonset = serverResponse.data.time_zone[0].moonset;
+        console.log(sunrise, sunset, moonrise, moonset)
+        sunAndMoonIcon();
+        setAndRiseTimings(serverResponse);
+
+
+
+
     });
 }
