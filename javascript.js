@@ -81,14 +81,15 @@ var checkMediaType = function (response) {
     // This statement determines what content is shown depending on the server response
     if (response.media_type == "image") {
         console.log(response.hdurl);
-        $("#apodVideo").css("display", "none");
+        $("#media").css("display", "none");
         $("#apodImg").css("display", "block");
         $("#apodImg").attr("src", response.hdurl);
         $("#modal-content").attr("src", response.hdurl);
     } else if (response.media_type == "video") {
         console.log(response.url);
         $("#apodImg").css("display", "none");
-        $("#apodVideo").css("display", "block");
+        $("#media").css("display", "block");
+        $("#media").attr("class", "video-container")
         $("#apodVideo").attr("src", response.url);
         $("#modal-content").attr("src", response.url);
     }
