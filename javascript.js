@@ -35,22 +35,22 @@ $(document).ready(function () {
 
     // This selects s resonse based on which Options were selected by the User.//
         
-    $( "div").click(function() {
+    // $( "div").click(function() {
 
-        if ( $( "#pic_of_day").hasClass("selected")) {
-            dateAPOD();
-        }
+    //     if ( $( "#pic_of_day").hasClass("selected")) {
+    //         dateAPOD();
+    //     }
 
-        if ( $( "#moonphaseop").hasClass("selected")) {
-            displayMoonPhase();
-        }
+    //     if ( $( "#moonphaseop").hasClass("selected")) {
+    //         displayMoonPhase();
+    //     }
 
-        if ( $( "#sunriseop").hasClass("selected")) {
-            setAndRiseTimings();
+    //     if ( $( "#sunriseop").hasClass("selected")) {
+    //         setAndRiseTimings();
 
-      } else {
+    //   } else {
         
-      }
+    //   }
 
     });
     // This initializes the use of the modals for images
