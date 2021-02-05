@@ -1,5 +1,5 @@
 $(document).ready(function () {
- 
+
     // This initialises the datepicker
     $("#datepicker").datepicker({
         format: "yyyy/mm/dd",
@@ -27,47 +27,28 @@ $(document).ready(function () {
         }
     });
 
-    // This selects s response based on which Options were selected by the User.//
-        
-    // $( "div").click(function() {
-
-    //     if ( $( "#pic_of_day").hasClass("selected")) {
-    //         dateAPOD();
-    //     }
-
-    //     if ( $( "#moonphaseop").hasClass("selected")) {
-    //         displayMoonPhase();
-    //     }
-
-    //     if ( $( "#sunriseop").hasClass("selected")) {
-    //         setAndRiseTimings();
-
-    //   } else {
-        
-    //   }
-
-    });
     // This initializes the use of the modals for images
     $('.modal').modal();
 
     // The function to retrieve the APOD is initialised
     todaysAPOD();
-})
+});
+
 
 // This event states that upon pressing a key a function will be executed
 $("#searchBtn").on("click", function (e) {
-   
-        // Prevents the default action of the event
-        e.preventDefault();
-        var q = $("#locationQuery").val();
-        // The following removes white space/spaces from the input
-        q = q.replace(/\s/g, "");
-        console.log(q);
-        // A function to build the queryURL for the GeoCode API is built
-        buildGeoCodeURL(q);
 
-        $("#ex4").css("display", "block");
-        displayMoonPhase();
+    // Prevents the default action of the event
+    e.preventDefault();
+    var q = $("#locationQuery").val();
+    // The following removes white space/spaces from the input
+    q = q.replace(/\s/g, "");
+    console.log(q);
+    // A function to build the queryURL for the GeoCode API is built
+    buildGeoCodeURL(q);
+
+    $("#ex4").css("display", "block");
+    displayMoonPhase();
 
 });
 
@@ -80,25 +61,25 @@ var buildGeoCodeURL = function (q) {
     ajaxCall(queryURL);
 }
 
-var getCaption = function(response){
-    if($("#mediaCaption") == ""){
+var getCaption = function (response) {
+    if ($("#mediaCaption") == "") {
         $("#mediaCaption").append(response.explanation);
-    }else if($("#mediaCaption") !== ""){
+    } else if ($("#mediaCaption") !== "") {
         $("#mediaCaption").empty();
         $("#mediaCaption").append(response.explanation);
     }
 }
 
 
-var checkMediaType = function(response){
+var checkMediaType = function (response) {
     // This statement determines what content is shown depending on the server response
-    if(response.media_type == "image"){
+    if (response.media_type == "image") {
         console.log(response.hdurl);
         $("#apodVideo").css("display", "none");
         $("#apodImg").css("display", "block");
         $("#apodImg").attr("src", response.hdurl);
         $("#modal-content").attr("src", response.hdurl);
-    } else if(response.media_type == "video"){
+    } else if (response.media_type == "video") {
         console.log(response.url);
         $("#apodImg").css("display", "none");
         $("#apodVideo").css("display", "block");
@@ -162,7 +143,7 @@ var ajaxCall = function (queryURL) {
         });
     });
 
-   
+
 }
 
 // A function to retrieve the APOD is declared
@@ -190,19 +171,19 @@ function dateAPOD(selectedDate) {
         url: dateQueryURL,
         method: 'GET'
     }).then(function (response) {
-            console.log(response);
-            console.log(dateQueryURL);
+        console.log(response);
+        console.log(dateQueryURL);
 
 
-            checkMediaType(response);
+        checkMediaType(response);
 
-            getCaption(response);
+        getCaption(response);
 
     })
 }
 
- //Function to display times for sunrise, moonrise, sunset & moonset
- function setAndRiseTimings(serverResponse) {
+//Function to display times for sunrise, moonrise, sunset & moonset
+function setAndRiseTimings(serverResponse) {
     //These timing variables are derived from the Object returned from the WorldWeatherOnline API   
     var sunrise = serverResponse.data.time_zone[0].sunrise;
     var sunset = serverResponse.data.time_zone[0].sunset;
