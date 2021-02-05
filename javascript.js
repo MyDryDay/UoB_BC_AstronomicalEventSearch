@@ -122,7 +122,7 @@ var ajaxCall = function (queryURL) {
         // AstroAPI call 
         var date = 2020 - 01 - 01;
         console.log(lat);
-        var queryURL3 = "http://api.worldweatheronline.com/premium/v1/astronomy.ashx?key=3430ff6446954353b06203241210102" + "&q=" + lat + "," + lon + "&date=" + date + "&format=json";
+        var queryURL3 = "https://api.worldweatheronline.com/premium/v1/astronomy.ashx?key=3430ff6446954353b06203241210102" + "&q=" + lat + "," + lon + "&date=" + date + "&format=json";
 
         $.ajax({
             url: queryURL3,
