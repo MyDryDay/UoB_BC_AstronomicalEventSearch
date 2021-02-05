@@ -32,25 +32,31 @@ $(document).ready(function () {
 
     // The function to retrieve the APOD is initialised
     todaysAPOD();
-});
 
 
+    retrieveCityArray();
+})
+
+var q = "";
 // This event states that upon pressing a key a function will be executed
 $("#searchBtn").on("click", function (e) {
+   
+        // Prevents the default action of the event
+        e.preventDefault();
 
-    // Prevents the default action of the event
-    e.preventDefault();
-    var q = $("#locationQuery").val();
-    // The following removes white space/spaces from the input
-    q = q.replace(/\s/g, "");
-    console.log(q);
-    // A function to build the queryURL for the GeoCode API is built
-    buildGeoCodeURL(q);
+        q = $("#locationQuery").val();
+        // The following removes white space/spaces from the input
+        q = q.replace(/\s/g, "");
+        console.log(q);
+        // A function to build the queryURL for the GeoCode API is built
+        buildGeoCodeURL(q);
 
-    $("#ex4").css("display", "block");
-    displayMoonPhase();
-
+        $("#ex4").css("display", "block");
+        displayMoonPhase();
+        saveSearchedCity();
+        retrieveCityArray();
 });
+
 
 // This function takes the user input previously assigned to variable q and concatenates it into the queryURL
 // It then calls the ajaxCall function
@@ -229,12 +235,37 @@ function displayMoonPhase() {
         console.log(moonURL + "month" + "=" + mm + "&" + "year" + "=" + year);
         var currentDate = dd + " " + moonPhase.monthName + " " + moonPhase.year //Gives you the current date based on local time
         var moonDiv = $("#ex4");
-        var dayDiv = "<div>" + "<b>" + currentDate + "</b>" + "</div>"
-        var moonSVG = "<div shadow>" + moonPhase.phase[dd].svg + "</div>" //Gives you the SVG of the moon
+        var dayDiv = "<div>" + "<b>" + currentDate + "</b>" + "</div>";
+        var moonSVG1 = moonPhase.phase[dd].svg;
+        console.log(moonSVG1); 
+        // moonSVG2.attr({"svg height":"332","svg width":"322"});
+        var moonSVG2 = "<div shadow>" + moonSVG1 + "</div>" //Gives you the SVG of the moon
         var phaseOfMoon = "<div>" + "<b>" + moonPhase.phase[dd].phaseName + " " +
             "" + ((moonPhase.phase[dd].isPhaseLimit) ? "" : Math.round(moonPhase.phase[dd].lighting) + "%") + "</b>" +
             "</div>" //Returns the phase the moon is currently in along with the percentage
-        var moonHTML = dayDiv + moonSVG + phaseOfMoon
+        var moonHTML = dayDiv + moonSVG2 + phaseOfMoon;
         moonDiv.html(moonHTML);
     });
 }
+ //This function saves the city names and stores it in the user's locatStorage
+ var cityNames = [];
+ 
+ function saveSearchedCity() {
+    localStorage.setItem("searchedCity", JSON.stringify(q));
+
+    cityNames.push(q);
+    localStorage.setItem("cities", JSON.stringify(cityNames));
+    console.log(cityNames);
+};
+
+//retrieves items from localStorage
+function retrieveCityArray() {
+    var retrievedCityArray = localStorage.getItem("cities");
+    city = JSON.parse(localStorage.getItem("searchedCity"));
+
+    if (retrievedCityArray !== null) {
+        cityNames = JSON.parse(retrievedCityArray);
+        //addCityButtons();
+        ajaxCall();
+    }
+};
