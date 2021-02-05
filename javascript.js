@@ -1,5 +1,5 @@
 $(document).ready(function () {
-
+    $('.sidenav').sidenav();
     // This initialises the datepicker
     $("#datepicker").datepicker({
         format: "yyyy/mm/dd",
