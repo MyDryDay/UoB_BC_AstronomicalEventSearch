@@ -41,20 +41,20 @@ var q = "";
 // This event states that upon pressing a key a function will be executed
 $("#searchBtn").on("click", function (e) {
    
-        // Prevents the default action of the event
-        e.preventDefault();
+    // Prevents the default action of the event
+    e.preventDefault();
 
-        q = $("#locationQuery").val();
-        // The following removes white space/spaces from the input
-        q = q.replace(/\s/g, "");
-        console.log(q);
-        // A function to build the queryURL for the GeoCode API is built
-        buildGeoCodeURL(q);
+    q = $("#locationQuery").val();
+    // The following removes white space/spaces from the input
+    q = q.replace(/\s/g, "");
+    console.log(q);
+    // A function to build the queryURL for the GeoCode API is built
+    buildGeoCodeURL(q);
 
-        $("#ex4").css("display", "block");
-        displayMoonPhase();
-        saveSearchedCity();
-        retrieveCityArray();
+    $("#ex4").css("display", "block");
+    displayMoonPhase();
+    saveSearchedCity();
+    retrieveCityArray();
 });
 
 
