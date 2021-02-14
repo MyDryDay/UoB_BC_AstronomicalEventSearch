@@ -4,7 +4,7 @@
 Astrosearch makes use of several APIs to offer users the opportunity to gain up-to-date astronomical information and images. NASA's Picture of the Day will automatically upload once a date is selected and the phases of the moon and sun and moon rise and set times can also be seen.
 
 ## Link to Deployed Application
-[AstroSearch](https://mydryday.github.io/UoB_BC_AstronomicalEventSearch/)
+[AstroSearch](https://karen-o94.github.io/UoB_BC_AstronomicalEventSearch/)
 
 ## Screenshots
 ![1](https://user-images.githubusercontent.com/74797740/107119804-d8111480-6881-11eb-9fd2-54fcf7d44eb4.jpg)
